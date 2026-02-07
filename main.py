@@ -38,7 +38,7 @@ bird_y = 300
 bird_velocity = 0
 # TODO 1: Tweaking the physics
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
-gravity = 9.81
+gravity = 0.5
 jump = -10
 # Pipe Variables -->
 pipe_x = 400
@@ -71,7 +71,7 @@ while running:
             if event.key == pygame.K_SPACE:
                 if game_started == False:
                     game_started = True
-                    bird_velocity = jump
+                    bird_velocity = jump + 2
                 elif game_over == False:
                     bird_velocity = jump
                 else:
