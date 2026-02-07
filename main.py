@@ -38,7 +38,7 @@ bird_y = 300
 bird_velocity = 0
 # TODO 1: Tweaking the physics
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
-gravity = 9.81
+gravity = 0.5
 jump = -10
 # Pipe Variables -->
 pipe_x = 400
@@ -51,7 +51,7 @@ pipe_height = random.randint(100, 400)
 # TODO 2.2: The too fast problem
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
 # speed for the player to play in!
-pipe_speed = 20
+pipe_speed = 8
 
 score = 0
 game_over = False
@@ -71,7 +71,7 @@ while running:
             if event.key == pygame.K_SPACE:
                 if game_started == False:
                     game_started = True
-                    bird_velocity = jump
+                    bird_velocity = jump + 2
                 elif game_over == False:
                     bird_velocity = jump
                 else:
@@ -100,7 +100,7 @@ while running:
             # TODO 4: Fixing the scoring
             # When you pass through the pipes the score should be updated to the current score + 1. Implement the
             # logic to accomplish this scoring system.
-            score = 1
+            score += 1
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
