@@ -14,9 +14,9 @@ The project is designed as an introductory programming assignment (PA0). Most of
 ## 👥 Team Information
 
 ### Partner #1
-- **Name:**
-- **Student Number:**
-- **Email:**
+- **Name:**Victoria Mitchum Torres
+- **Student Number:**802-24-5290
+- **Email:**victoria.mitchum@upr.edu
 
 ### Partner #2
 - **Name:**Dayra M. Cecilia Concepcion
