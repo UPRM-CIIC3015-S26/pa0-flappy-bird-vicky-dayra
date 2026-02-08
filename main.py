@@ -1,6 +1,8 @@
 import pygame, random
 pygame.init()
 pygame.mixer.init()
+pygame.mixer.music.load("GoTa Production - Happy Morning Song [lFo8rDa-9_s].wav")
+pygame.mixer.music.set_volume(0.2)
 '''
 Welcome to PA0 – Flappy Bird! Throughout this code, you are going to find a recreation of a game you have probably
 heard of before. This is an introductory assignment designed to help you familiarize yourself with what you can expect 
@@ -53,7 +55,7 @@ pipe_height = random.randint(100, 400)
 # TODO 2.2: The too fast problem
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
 # speed for the player to play in!
-pipe_speed = 8
+pipe_speed = 4
 
 score = 0
 game_over = False
@@ -74,6 +76,7 @@ while running:
                 if game_started == False:
                     game_started = True
                     bird_velocity = jump + 2
+                    pygame.mixer.music.play()
                 elif game_over == False:
                     bird_velocity = jump
                 else:
@@ -86,12 +89,11 @@ while running:
                     score = 0
                     game_over = False
                     game_started = True
-                    bird_y = bird_y + bird_velocity
+                    bird_y = 300
                     pipe_height = random.randint(100, 400)
 
     if game_started == True and game_over == False:
         bird_velocity = bird_velocity + gravity
-        bird_y = 300
         bird_y = bird_y + bird_velocity
         pipe_x = pipe_x - pipe_speed
 
@@ -109,6 +111,7 @@ while running:
         if bird_y > 600 or bird_y < 0:
             game_over = True
             sound_effect.stop()
+            pygame.mixer.music.stop()
 
         bird_rect = pygame.Rect(bird_x, bird_y, 30, 30)
         top_pipe_rect = pygame.Rect(pipe_x, 0, pipe_width, pipe_height)
@@ -117,6 +120,7 @@ while running:
         if bird_rect.colliderect(top_pipe_rect) or bird_rect.colliderect(bottom_pipe_rect):
             game_over = True
             sound_effect.stop()
+            pygame.mixer.music.stop()
 
     screen.fill(pygame.Color('grey12'))
     # TODO 5: A Bird's Color
