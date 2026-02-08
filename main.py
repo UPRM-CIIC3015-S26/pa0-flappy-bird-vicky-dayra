@@ -11,6 +11,7 @@ some of the game mechanics.
 screen = pygame.display.set_mode((400, 600))
 pygame.display.set_caption("Flappy Bird")
 
+bg = pygame.image.load('img/bird_bg.jpg')
 # Colors -->
 # NOTE: This is in the RGB (Red, Green, Blue) format
 WHITE = (255, 255, 255)
@@ -113,7 +114,8 @@ while running:
         if bird_rect.colliderect(top_pipe_rect) or bird_rect.colliderect(bottom_pipe_rect):
             game_over = True
 
-    screen.fill(pygame.Color('darkslategray3'))
+    screen.blit(bg, (0, 0))
+
     # TODO 5: A Bird's Color
     # The color of the player is currently white, let's change that a bit! You are free to change the bird's
     # to whatever you wish. You will need to head back to where the PLAYER variable was created and change the values.
