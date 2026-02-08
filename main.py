@@ -36,6 +36,7 @@ score_y = 10
 bird_x = 50
 bird_y = 300
 bird_velocity = 0
+
 # TODO 1: Tweaking the physics
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
 gravity = 0.5
@@ -46,7 +47,7 @@ pipe_width = 70
 # TODO 2.1: A Little gap Problem
 # You probably noticed when running the code that it's impossible the player to go through the gaps
 # play around with the pipe_gap variable so that its big enough for the player to pass through
-pipe_gap = 200
+pipe_gap = 230
 pipe_height = random.randint(100, 400)
 # TODO 2.2: The too fast problem
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
@@ -112,7 +113,7 @@ while running:
         if bird_rect.colliderect(top_pipe_rect) or bird_rect.colliderect(bottom_pipe_rect):
             game_over = True
 
-    screen.fill(pygame.Color('grey12'))
+    screen.fill(pygame.Color('darkslategray3'))
     # TODO 5: A Bird's Color
     # The color of the player is currently white, let's change that a bit! You are free to change the bird's
     # to whatever you wish. You will need to head back to where the PLAYER variable was created and change the values.
