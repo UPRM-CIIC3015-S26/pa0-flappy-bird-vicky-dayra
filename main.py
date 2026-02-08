@@ -11,7 +11,13 @@ some of the game mechanics.
 screen = pygame.display.set_mode((400, 600))
 pygame.display.set_caption("Flappy Bird")
 
-bg = pygame.image.load('img/bird_bg.jpg')
+#images
+bg = pygame.image.load("img/bg.jpg")
+bg = pygame.transform.scale(bg, (400, 600))
+bird= pygame.image.load("img/bird.png")
+bird = pygame.transform.scale(bird, (30, 30))
+b_rect = bird.get_rect()
+
 # Colors -->
 # NOTE: This is in the RGB (Red, Green, Blue) format
 WHITE = (255, 255, 255)
@@ -36,6 +42,7 @@ score_y = 10
 # Player Variables -->
 bird_x = 50
 bird_y = 300
+b_rect.topleft= (bird_x, bird_y)
 bird_velocity = 0
 
 # TODO 1: Tweaking the physics
@@ -119,8 +126,8 @@ while running:
     # TODO 5: A Bird's Color
     # The color of the player is currently white, let's change that a bit! You are free to change the bird's
     # to whatever you wish. You will need to head back to where the PLAYER variable was created and change the values.
-    pygame.draw.rect(screen, PLAYER, (bird_x, bird_y, 30, 30)) # Drawing the bird (You don't need to touch this line!)
-    pygame.draw.rect(screen, GREEN, (pipe_x, 0, pipe_width, pipe_height))
+    screen.blit(bird, (bird_x, bird_y))
+    pygame.draw.rect(screen, GREEN,  (pipe_x, 0, pipe_width, pipe_height))
     pygame.draw.rect(screen, GREEN, (pipe_x, pipe_height + pipe_gap, pipe_width, 600))
     score_text = small_font.render(str(score), True, WHITE)
     screen.blit(score_text, (score_x, score_y))
