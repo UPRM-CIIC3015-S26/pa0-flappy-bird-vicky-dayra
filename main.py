@@ -1,5 +1,6 @@
 import pygame, random
 pygame.init()
+pygame.mixer.init()
 '''
 Welcome to PA0 – Flappy Bird! Throughout this code, you are going to find a recreation of a game you have probably
 heard of before. This is an introductory assignment designed to help you familiarize yourself with what you can expect 
@@ -36,6 +37,7 @@ score_y = 10
 bird_x = 50
 bird_y = 300
 bird_velocity = 0
+sound_effect = pygame.mixer.Sound("mario_coin_sound.wav")#sound effect added
 # TODO 1: Tweaking the physics
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
 gravity = 0.5
@@ -101,9 +103,12 @@ while running:
             # When you pass through the pipes the score should be updated to the current score + 1. Implement the
             # logic to accomplish this scoring system.
             score += 1
+            sound_effect.stop()
+            sound_effect.play() #Added the pac-man sound
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
+            sound_effect.stop()
 
         bird_rect = pygame.Rect(bird_x, bird_y, 30, 30)
         top_pipe_rect = pygame.Rect(pipe_x, 0, pipe_width, pipe_height)
@@ -111,6 +116,7 @@ while running:
 
         if bird_rect.colliderect(top_pipe_rect) or bird_rect.colliderect(bottom_pipe_rect):
             game_over = True
+            sound_effect.stop()
 
     screen.fill(pygame.Color('grey12'))
     # TODO 5: A Bird's Color
