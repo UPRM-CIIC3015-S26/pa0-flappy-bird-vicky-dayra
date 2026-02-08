@@ -106,7 +106,7 @@ while running:
             # logic to accomplish this scoring system.
             score += 1
             sound_effect.stop()
-            sound_effect.play() #Added the pac-man sound
+            sound_effect.play() #Added the coin sound
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
