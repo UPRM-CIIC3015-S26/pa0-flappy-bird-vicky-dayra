@@ -19,9 +19,9 @@ The project is designed as an introductory programming assignment (PA0). Most of
 - **Email:**
 
 ### Partner #2
-- **Name:**
-- **Student Number:**
-- **Email:**
+- **Name:**Dayra M. Cecilia Concepcion
+- **Student Number:**802-25-8474
+- **Email:**dayra.cecilia@upr.edu
 
 ## ⭐ Bonus Features (Optional)
 List and briefly describe any additional features or enhancements implemented beyond the basic requirements.
