@@ -25,5 +25,6 @@ The project is designed as an introductory programming assignment (PA0). Most of
 
 ## ⭐ Bonus Features (Optional)
 List and briefly describe any additional features or enhancements implemented beyond the basic requirements.
-- Bonus Feature 1
-- Bonus Feature 2
+- Bonus Feature 1 Added Background Image
+- Bonus Feature 2 Added Flappy Bird Character
+- Bonus Feature 3 Added Background Music
