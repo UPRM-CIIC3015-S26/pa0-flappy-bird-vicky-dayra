@@ -47,7 +47,7 @@ score_y = 10
 bird_x = 50
 bird_y = 300
 b_rect.topleft= (bird_x, bird_y)
-bird_velocity = 0
+bird_velocity = 14
 
 #Bonus Point sound
 point_sound = pygame.mixer.Sound("mario_coin_sound.wav")
