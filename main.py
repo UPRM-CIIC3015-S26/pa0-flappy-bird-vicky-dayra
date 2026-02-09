@@ -1,5 +1,9 @@
 import pygame, random
 pygame.init()
+pygame.mixer.init()
+pygame.mixer.music.load("GoTa Production - Happy Morning Song [lFo8rDa-9_s].wav")
+pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(-1)
 '''
 Welcome to PA0 – Flappy Bird! Throughout this code, you are going to find a recreation of a game you have probably
 heard of before. This is an introductory assignment designed to help you familiarize yourself with what you can expect 
@@ -45,6 +49,9 @@ bird_y = 300
 b_rect.topleft= (bird_x, bird_y)
 bird_velocity = 0
 
+#Bonus Point sound
+point_sound = pygame.mixer.Sound("mario_coin_sound.wav")
+
 # TODO 1: Tweaking the physics
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
 gravity = 0.5
@@ -60,7 +67,7 @@ pipe_height = random.randint(100, 400)
 # TODO 2.2: The too fast problem
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
 # speed for the player to play in!
-pipe_speed = 8
+pipe_speed = 4
 
 score = 0
 game_over = False
@@ -93,12 +100,12 @@ while running:
                     score = 0
                     game_over = False
                     game_started = True
-                    bird_y = bird_y + bird_velocity
+                    bird_y = 300
                     pipe_height = random.randint(100, 400)
+                    pygame.mixer.music.play(-1)
 
     if game_started == True and game_over == False:
         bird_velocity = bird_velocity + gravity
-        bird_y = 300
         bird_y = bird_y + bird_velocity
         pipe_x = pipe_x - pipe_speed
 
@@ -110,9 +117,11 @@ while running:
             # When you pass through the pipes the score should be updated to the current score + 1. Implement the
             # logic to accomplish this scoring system.
             score += 1
+            point_sound.play()
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
+            pygame.mixer.music.stop()
 
         bird_rect = pygame.Rect(bird_x, bird_y, 30, 30)
         top_pipe_rect = pygame.Rect(pipe_x, 0, pipe_width, pipe_height)
