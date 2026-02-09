@@ -19,7 +19,7 @@ pygame.display.set_caption("Flappy Bird")
 bg = pygame.image.load("img/bg.jpg")
 bg = pygame.transform.scale(bg, (400, 600))
 bird= pygame.image.load("img/bird.png")
-bird = pygame.transform.scale(bird, (30, 30))
+bird = pygame.transform.scale(bird, (50,50))
 b_rect = bird.get_rect()
 
 # Colors -->
